@@ -1,0 +1,22 @@
+{
+  "name": "Chatbot: test00",
+  "description": "Chatbot: test00",
+  "image": "heroku/python",
+  "repository": "https://github.com/madigeyev/Bot_Heroku.git",
+  "keywords": ["python", "chatbot"],
+  "addons": [ "heroku-postgresql" ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "python test00.py",
+        "test": "python test00.py"
+      }
+    }
+  }
+}
