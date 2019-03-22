@@ -44,9 +44,16 @@ class BotHandler:
         last_update = get_result[-1]
         return last_update
 
+    def show_menu(self, chat_id):
+        self.send_message(last_chat_id, ans)
+        params = {'chat_id': chat_id, 'reply_markup':{"ReplyKeyboardMarkup":{"keyboard":[[{"KeyboardButton":{"text":"test"}}]]}}}
+        method = 'sendMessage'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
 		
 greet_bot = BotHandler(token)  
-greetings = ('hello', 'hi', 'greetings', 'sup')  
+greetings = ('hello', 'hi', 'greetings', 'sup', 'привет', 'добрый день')  
 now = datetime.datetime.now()
  
  
@@ -76,8 +83,10 @@ def main():
                     ans = 'Добрый день, {}'.format(last_chat_name)
                 elif 17 <= hour < 23:
                     ans = 'Добрый вечер, {}'.format(last_chat_name)
-        elif msg == 'как тебя зовут':
+        elif msg.find('как тебя зовут')>-1:
             ans = 'Меня зовут Вася'
+        elif msg.find('меню')>-1:
+            greet_bot.show_menu(last_chat_id)
         elif len(msg)>0:
             greet_bot.send_message(last_chat_id, 'Прошу прощения. Эту фразу я не понимаю: {}'.format(msg))
  
