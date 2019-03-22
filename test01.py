@@ -76,7 +76,7 @@ def main():
             today += 1
             
         elif len(msg)>0:
-            greet_bot.send_message(last_chat_id, 'Sorry, {}. I don\'t understand :( '.format(last_chat_name))
+            greet_bot.send_message(last_chat_id, 'Sorry. I don\'t understand: {}'.format(msg))
  
         new_offset = last_update_id + 1
  
