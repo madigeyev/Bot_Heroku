@@ -62,21 +62,18 @@ def main():
         last_chat_id = last_update['message']['chat']['id']
         last_chat_name = last_update['message']['chat']['first_name']
         msg = last_chat_text.lower()
- 
-        if msg in greetings and today == now.day and 6 <= hour < 12:
-            greet_bot.send_message(last_chat_id, 'Good Morning  {}'.format(last_chat_name))
-            today += 1
- 
-        elif msg in greetings and today == now.day and 12 <= hour < 17:
-            greet_bot.send_message(last_chat_id, 'Good Afternoon {}'.format(last_chat_name))
-            today += 1
- 
-        elif msg in greetings and today == now.day and 17 <= hour < 23:
-            greet_bot.send_message(last_chat_id, 'Good Evening  {}'.format(last_chat_name))
-            today += 1
-            
-        elif len(msg)>0:
-            greet_bot.send_message(last_chat_id, 'Sorry. I don\'t understand: {}'.format(msg))
+
+        if today == now.day :
+            if msg in greetings:
+                today += 1
+                if 6 <= hour < 12:
+                    greet_bot.send_message(last_chat_id, 'Good Morning  {}'.format(last_chat_name))
+                elif 12 <= hour < 17:
+                    greet_bot.send_message(last_chat_id, 'Good Afternoon {}'.format(last_chat_name))
+                elif 17 <= hour < 23:
+                    greet_bot.send_message(last_chat_id, 'Good Evening  {}'.format(last_chat_name))
+            elif len(msg)>0:
+                greet_bot.send_message(last_chat_id, 'Sorry. I don\'t understand: {}'.format(msg))
  
         new_offset = last_update_id + 1
  
