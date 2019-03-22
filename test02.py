@@ -45,7 +45,8 @@ class BotHandler:
         return last_update
 
     def show_menu(self, chat_id):
-        params = {'chat_id': chat_id, 'reply_markup':{"ReplyKeyboardMarkup":{"keyboard":[[{"KeyboardButton":{"text":"test"}}]]}}}
+        #params = {'chat_id': chat_id, 'reply_markup':{"ReplyKeyboardMarkup":{"keyboard":[[{"KeyboardButton":{"text":"test"}}]]}}}
+        params = {'chat_id': chat_id, 'reply_markup':{"keyboard":[[{"KeyboardButton":{"text":"test"}}]]}}
         method = 'sendMessage'
         resp = requests.post(self.api_url + method, params)
         return resp
