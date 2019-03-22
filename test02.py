@@ -86,6 +86,7 @@ def main():
             ans = 'Меня зовут Вася'
         elif msg.find('меню')>-1:
             greet_bot.show_menu(last_chat_id)
+            ans = '<Показал меню>'
         elif len(msg)>0:
             greet_bot.send_message(last_chat_id, 'Прошу прощения. Эту фразу я не понимаю: {}'.format(msg))
  
