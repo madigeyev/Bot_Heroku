@@ -67,11 +67,11 @@ def main():
             greet_bot.send_message(last_chat_id, 'Good Morning  {}'.format(last_chat_name))
             today += 1
  
-        elif msg last_chat_text.lower() in greetings and today == now.day and 12 <= hour < 17:
+        elif msg in greetings and today == now.day and 12 <= hour < 17:
             greet_bot.send_message(last_chat_id, 'Good Afternoon {}'.format(last_chat_name))
             today += 1
  
-        elif msg last_chat_text.lower() in greetings and today == now.day and 17 <= hour < 23:
+        elif msg in greetings and today == now.day and 17 <= hour < 23:
             greet_bot.send_message(last_chat_id, 'Good Evening  {}'.format(last_chat_name))
             today += 1
             
